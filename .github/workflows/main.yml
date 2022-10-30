@@ -18,7 +18,7 @@ jobs:
           nvm install $(cat .nvmrc)
           nvm use
           npm ci
-          npm run export
+          npx @cloudflare/next-on-pages --experimental-minify
       - uses: actions/upload-artifact@v2
         with:
           name: artifact
