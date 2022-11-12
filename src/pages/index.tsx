@@ -44,7 +44,7 @@ const Index: NextPage<Props> = ({msg}) => {
         Hello {msg}
       </p>
       <p>
-        Hello {edgeApiResponse}
+        Edge API: {edgeApiResponse}
       </p>
     </div>
   </>;

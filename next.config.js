@@ -20,6 +20,9 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 /** @type {import('next').NextConfig} */
 const config = {
+  env: {
+    HELLO: process.env.HELLO,
+  },
   experimental: {
     runtime: 'experimental-edge',
   },
