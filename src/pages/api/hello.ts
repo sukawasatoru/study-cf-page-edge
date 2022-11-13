@@ -15,6 +15,7 @@
  */
 
 import {NextRequest} from 'next/server';
+import {getHello, getPublicHello, getPublicProduction} from '@/model/configuration';
 
 const handler = async (req: NextRequest): Promise<Response> => {
   const cache = (() => {
@@ -104,9 +105,9 @@ const handler = async (req: NextRequest): Promise<Response> => {
     return new Response(
       JSON.stringify(
         {
-          HELLO: process.env.HELLO,
-          NEXT_PUBLIC_HELLO: process.env.NEXT_PUBLIC_HELLO,
-          NEXT_PUBLIC_HELLO_PRODUCTION: process.env.NEXT_PUBLIC_HELLO_PRODUCTION ?? 'undefined',
+          HELLO: getHello() ?? 'undefined',
+          NEXT_PUBLIC_HELLO: getPublicHello() ?? 'undefined',
+          NEXT_PUBLIC_HELLO_PRODUCTION: getPublicProduction() ?? 'undefined',
           'req.geo.city': req.geo?.city ?? 'undefined',
           'req.geo.country': req.geo?.country ?? 'undefined',
           'req.geo.region': req.geo?.region ?? 'undefined',
